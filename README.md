@@ -1,4 +1,4 @@
-Sample configuration for issue bazelbuild/rules_nodejs#1451
+Sample configuration for issue https://github.com/bazelbuild/rules_nodejs/issues/1451
 
 ```shell
 npm run-script ng # (1) >>>> FAIL: RUNFILES environment variable is not set. <<<<
