@@ -1,0 +1,12 @@
+exports_files([
+    "package.json",
+])
+
+sh_binary(
+    name = "runme",
+    srcs = ["runme.sh"],
+    data = [
+        "@bazel_tools//tools/bash/runfiles",
+        "@npm//lorem-ipsum/bin:lorem-ipsum",
+    ],
+)

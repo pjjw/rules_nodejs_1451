@@ -1,0 +1,18 @@
+{
+  "name": "rules_nodejs_1451",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Dmitrii Lazutkin <lazdmx@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "ng": "bazel clean && bazel run :runme",
+    "ok": "bazel clean && bazel run -- @npm//lorem-ipsum/bin:lorem-ipsum > /dev/null && bazel run :runme",
+    "bazel": "bazel"
+  },
+  "dependencies": {
+    "lorem-ipsum": "^2.0.3"
+  },
+  "devDependencies": {
+    "@bazel/bazel": "^2.0.0"
+  }
+}
