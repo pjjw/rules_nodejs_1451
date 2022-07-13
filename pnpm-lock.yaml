@@ -1,0 +1,67 @@
+lockfileVersion: 5.4
+
+specifiers:
+  '@bazel/bazel': ^2.0.0
+  lorem-ipsum: ^2.0.3
+
+dependencies:
+  lorem-ipsum: 2.0.3
+
+devDependencies:
+  '@bazel/bazel': 2.0.0
+
+packages:
+
+  /@bazel/bazel-darwin_x64/2.0.0:
+    resolution: {integrity: sha512-I/pP+B+2xfY0g+OEpEcVnk8rizuC761pAzBOQjP3b+gz3AzeRgm05CpcSY7tfPIppMSYoy3uTZJ1XlwgUg7IQQ==}
+    os: [darwin]
+    hasBin: true
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@bazel/bazel-linux_x64/2.0.0:
+    resolution: {integrity: sha512-iOr45G+511IbP7e+ISriG97WpfCAVXekTrTgL5mGg3NDBFCVNs350VquHAvmlXAoP5+IEug2pCOlkdEl4bLl8g==}
+    os: [linux]
+    hasBin: true
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@bazel/bazel-win32_x64/2.0.0:
+    resolution: {integrity: sha512-5qs2qoa/paG/YYEM0yvrwuJIShoPVK2FX+Oz9jEWAQJsmU4drHA9Aq+gbBOirEFLmvYhleZ9XORCwu/5uAo8vA==}
+    os: [win32]
+    hasBin: true
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@bazel/bazel/2.0.0:
+    resolution: {integrity: sha512-KQbv5dHNSfutbhXCc3KVMuBXPpUh6Af/hT9IRIaMTuiB6Nq2gEW9Z3aNqncopdZqV848V/qYxnqPnQ+S37fMyQ==}
+    deprecated: '@bazel/bazel is deprecated, please use @bazel/bazelisk instead'
+    hasBin: true
+    dependencies:
+      '@bazel/hide-bazel-files': 1.7.0
+    optionalDependencies:
+      '@bazel/bazel-darwin_x64': 2.0.0
+      '@bazel/bazel-linux_x64': 2.0.0
+      '@bazel/bazel-win32_x64': 2.0.0
+    dev: true
+
+  /@bazel/hide-bazel-files/1.7.0:
+    resolution: {integrity: sha512-pvdyRX/EsU8n+oElFb+OZ9i5M48HNFR+Z4D3vc0qDGiJ8oly9fZcUb2gbw4CzyeovJz0IzjSxjqMS6cp5gKoeg==}
+    hasBin: true
+    requiresBuild: true
+    dev: true
+
+  /commander/2.20.3:
+    resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
+    dev: false
+
+  /lorem-ipsum/2.0.3:
+    resolution: {integrity: sha512-CX2r84DMWjW/DWiuzicTI9aRaJPAw2cvAGMJYZh/nx12OkTGqloj8y8FU0S8ZkKwOdqhfxEA6Ly8CW2P6Yxjwg==}
+    engines: {node: '>= 8.x', npm: '>= 5.x'}
+    hasBin: true
+    dependencies:
+      commander: 2.20.3
+    dev: false

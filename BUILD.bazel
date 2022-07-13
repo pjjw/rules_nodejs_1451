@@ -1,12 +1,23 @@
+load("@npm//:defs.bzl", "npm_link_all_packages")
+load("@npm//:lorem-ipsum/package_json.bzl", "bin")
+
 exports_files([
     "package.json",
 ])
+
+npm_link_all_packages(name = "node_modules")
+
+bin.lorem_ipsum_binary(
+    name = "lorem-ipsum",
+)
 
 sh_binary(
     name = "runme",
     srcs = ["runme.sh"],
     data = [
+        ":lorem-ipsum",
+    ],
+    deps = [
         "@bazel_tools//tools/bash/runfiles",
-        "@npm//lorem-ipsum/bin:lorem-ipsum",
     ],
 )

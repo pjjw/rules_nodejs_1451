@@ -5,8 +5,8 @@
   "author": "Dmitrii Lazutkin <lazdmx@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "ng": "bazel clean && bazel run :runme",
-    "ok": "bazel clean && bazel run -- @npm//lorem-ipsum/bin:lorem-ipsum > /dev/null && bazel run :runme",
+    "ng": "bazel clean && bazel run //:runme",
+    "ok": "bazel clean && bazel run -- //:lorem-ipsum > /dev/null && bazel run //:runme",
     "bazel": "bazel"
   },
   "dependencies": {

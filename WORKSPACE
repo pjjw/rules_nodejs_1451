@@ -1,24 +1,35 @@
 workspace(
     name = "issue_1451",
-    managed_directories = {"@npm": ["node_modules"]},
 )
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
-    name = "build_bazel_rules_nodejs",
-    sha256 = "a54b2511d6dae42c1f7cdaeb08144ee2808193a088004fc3b464a04583d5aa2e",
-    urls = ["https://github.com/bazelbuild/rules_nodejs/releases/download/0.42.3/rules_nodejs-0.42.3.tar.gz"],
+    name = "aspect_rules_js",
+    sha256 = "80e168f9cd62f3640de429b70b34ff817d0d94ada2abaf2cffeef46e35434e1d",
+    strip_prefix = "rules_js-1.0.0-rc.1",
+    url = "https://github.com/aspect-build/rules_js/archive/refs/tags/v1.0.0-rc.1.tar.gz",
 )
 
-load("@build_bazel_rules_nodejs//:index.bzl", "node_repositories")
+load("@aspect_rules_js//js:repositories.bzl", "rules_js_dependencies")
 
-node_repositories(package_json = ["//:package.json"])
+rules_js_dependencies()
 
-load("@build_bazel_rules_nodejs//:index.bzl", "yarn_install")
+load("@rules_nodejs//nodejs:repositories.bzl", "DEFAULT_NODE_VERSION", "nodejs_register_toolchains")
 
-yarn_install(
+nodejs_register_toolchains(
+    name = "nodejs",
+    node_version = DEFAULT_NODE_VERSION,
+)
+
+load("@aspect_rules_js//npm:npm_import.bzl", "npm_translate_lock")
+
+npm_translate_lock(
     name = "npm",
-    package_json = "//:package.json",
-    yarn_lock = "//:yarn.lock",
+    pnpm_lock = "//:pnpm-lock.yaml",
+    verify_node_modules_ignored = "//:.bazelignore",
 )
+
+load("@npm//:repositories.bzl", "npm_repositories")
+
+npm_repositories()
